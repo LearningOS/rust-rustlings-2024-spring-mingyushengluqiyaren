@@ -8,9 +8,6 @@
 
 
 fn main() {
-<<<<<<< HEAD
     println!("Hello !");
-=======
     println!("Hello!");
->>>>>>> origin
 }
