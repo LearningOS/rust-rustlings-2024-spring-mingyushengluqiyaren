@@ -2,7 +2,10 @@
 //
 // Execute `rustlings hint if3` or use the `hint` watch subcommand for a hint.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin
 
 pub fn animal_habitat(animal: &str) -> &'static str {
     let identifier = if animal == "crab" {

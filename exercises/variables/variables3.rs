@@ -6,6 +6,10 @@
 
 
 fn main() {
+<<<<<<< HEAD
     let x: i32=10;
+=======
+    let x: i32=1;
+>>>>>>> origin
     println!("Number {}", x);
 }
