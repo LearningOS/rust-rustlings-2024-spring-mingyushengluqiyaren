@@ -9,9 +9,5 @@ fn main() {
     let mut number = "T-H-R-E-E"; // don't change this line
     println!("Spell a Number : {}", number);
     number = "3"; // don't rename this variable
-<<<<<<< HEAD
     println!("Number plus two is : {}", "number");
-=======
-    println!("Number plus two is : {}", number);
->>>>>>> origin
 }

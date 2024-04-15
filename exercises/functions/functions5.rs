@@ -11,9 +11,5 @@ fn main() {
 }
 
 fn square(num: i32) -> i32 {
-<<<<<<< HEAD
     num * num
-=======
-    return num * num;
->>>>>>> origin
 }

@@ -10,17 +10,10 @@
 pub fn foo_if_fizz(fizzish: &str) -> &str {
     if fizzish == "fizz" {
         "foo"
-<<<<<<< HEAD
     } else if fizzish=="fuzz"{
         "bar"
         
     }else{
-=======
-    } else if fizzish =="fuzz"{
-        "bar"
-    }
-    else{
->>>>>>> origin
         "baz"
     }
 }
