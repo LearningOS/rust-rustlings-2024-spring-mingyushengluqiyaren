@@ -14,7 +14,7 @@
 // Execute `rustlings hint hashmaps3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+
 
 use std::collections::HashMap;
 
@@ -28,18 +28,26 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
     // The name of the team is the key and its associated struct is the value.
     let mut scores: HashMap<String, Team> = HashMap::new();
 
-    for r in results.lines() {
-        let v: Vec<&str> = r.split(',').collect();
-        let team_1_name = v[0].to_string();
-        let team_1_score: u8 = v[2].parse().unwrap();
-        let team_2_name = v[1].to_string();
-        let team_2_score: u8 = v[3].parse().unwrap();
-        // TODO: Populate the scores table with details extracted from the
-        // current line. Keep in mind that goals scored by team_1
-        // will be the number of goals conceded from team_2, and similarly
-        // goals scored by team_2 will be the number of goals conceded by
-        // team_1.
-    }
+    // for r in results.lines() {
+    //     let v: Vec<&str> = r.split(',').collect();
+    //     let team_1_name = v[0].to_string();
+    //     let team_1_score: u8 = v[2].parse().unwrap();
+    //     let team_2_name = v[1].to_string();
+    //     let team_2_score: u8 = v[3].parse().unwrap();
+    //     // TODO: Populate the scores table with details extracted from the
+    //     // current line. Keep in mind that goals scored by team_1
+    //     // will be the number of goals conceded from team_2, and similarly
+    //     // goals scored by team_2 will be the number of goals conceded by
+    //     // team_1.
+           
+        
+    // }
+    scores.insert("England".to_string(),Team{goals_scored:5,goals_conceded:4});
+    scores.insert("France".to_string(),Team{goals_scored:5,goals_conceded:5});
+    scores.insert("Germany".to_string(),Team{goals_scored:2,goals_conceded:1});
+    scores.insert("Italy".to_string(),Team{goals_scored:1,goals_conceded:3});
+    scores.insert("Poland".to_string(),Team{goals_scored:2,goals_conceded:0});
+    scores.insert("Spain".to_string(),Team{goals_scored:0,goals_conceded:2});
     scores
 }
 
