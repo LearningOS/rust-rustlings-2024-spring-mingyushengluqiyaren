@@ -12,7 +12,7 @@ use std::vec::*;
 struct Node<T> {
     val: T,
     next: Option<NonNull<Node<T>>>,
-}
+}//定义节点
 
 impl<T> Node<T> {
     fn new(t: T) -> Node<T> {
@@ -20,7 +20,7 @@ impl<T> Node<T> {
             val: t,
             next: None,
         }
-    }
+    }//创建新节点
 }
 #[derive(Debug)]
 struct LinkedList<T> {
