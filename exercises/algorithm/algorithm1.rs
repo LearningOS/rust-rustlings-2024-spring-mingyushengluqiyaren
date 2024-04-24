@@ -2,11 +2,12 @@
 	single linked list merge
 	This problem requires you to merge two ordered singly linked lists into one ordered singly linked list
 */
-// I AM NOT DONE
+
 
 use std::fmt::{self, Display, Formatter};
 use std::ptr::NonNull;
 use std::vec::*;
+
 
 #[derive(Debug)]
 struct Node<T> {
@@ -69,16 +70,81 @@ impl<T> LinkedList<T> {
             },
         }
     }
-	pub fn merge(list_a:LinkedList<T>,list_b:LinkedList<T>) -> Self
-	{
-		//TODO
-		Self {
-            length: 0,
-            start: None,
-            end: None,
+// 	pub fn merge(list_a:LinkedList<T>,list_b:LinkedList<T>) -> Self
+// 	{
+// 		//TODO
+//         let mut a_start=list_a.start;
+//         let mut b_start=list_b.start;
+//         let mut list_c = LinkedList::<i32>::new();
+//         let mut a:Vec<&T>=Vec::new();
+//         while let Some(node_ptr)=a_start{
+//             let node =unsafe{node_ptr.as_ref()};
+//             a.push(&node.val);
+//             a_start=node.next;
+//         }
+//         while let Some(node_ptr)=b_start{
+//             let node =unsafe{node_ptr.as_ref()};
+//             a.push(&node.val);
+//             b_start=node.next;
+//         }
+  
+        
+        
+//         Self {
+//             length: 0,
+//             start: None,
+//             end: None,
+//         }
+// 	}
+// }
+pub fn merge(list_a: LinkedList<i32>, list_b: LinkedList<i32>) -> LinkedList<i32> {
+    let mut merged_list = LinkedList::new();
+    
+    // Collect values from list_a
+    let mut current_a = list_a.start;
+    while let Some(node_ptr) = current_a {
+        let node = unsafe { node_ptr.as_ref() };
+        merged_list.add(node.val);
+        current_a = node.next;
+    }
+    
+    // Collect values from list_b
+    let mut current_b = list_b.start;
+    while let Some(node_ptr) = current_b {
+        let node = unsafe { node_ptr.as_ref() };
+        merged_list.add(node.val);
+        current_b = node.next;
+    }
+
+    // Sort the merged list (example: bubble sort)
+    let mut swapped = true;
+    while swapped {
+        swapped = false;
+        let mut current_node = merged_list.start;
+        
+        while let Some(mut node_ptr) = current_node {
+            let next_node_ptr = unsafe { node_ptr.as_ref().next };
+            
+            if let Some(mut next_ptr) = next_node_ptr {
+                let current_val = unsafe { node_ptr.as_ref().val };
+                let next_val = unsafe { next_ptr.as_ref().val };
+                
+                if current_val > next_val {
+                    // Swap values
+                    unsafe {
+                        node_ptr.as_mut().val = next_val;
+                        next_ptr.as_mut().val = current_val;
+                    }
+                    swapped = true;
+                }
+            }
+            
+            current_node = next_node_ptr;
         }
-	}
-}
+    }
+    
+    merged_list
+}}
 
 impl<T> Display for LinkedList<T>
 where
